@@ -1,17 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 import redis
 
-# Configuración de Redis/KeyDB
-KEYDB_HOST = "localhost"
-KEYDB_PORT = 6379
-KEYDB_DB = 0
-
-keydb = redis.Redis(host=KEYDB_HOST, port=KEYDB_PORT, db=KEYDB_DB, decode_responses=True)
-
 # Configuración de Flask
 app = Flask(__name__)
 app.secret_key = "supersecretkey"  # Para manejar sesiones y mensajes flash
 
+keydb = redis.Redis(host="localhost", port= 6379, db=0, decode_responses=True)
 
 # Rutas de la aplicación
 @app.route("/")
@@ -85,4 +79,4 @@ def eliminar_receta(nombre):
 
 # Iniciar la aplicación Flask
 if __name__ == "__main__":
-    app.run(debug=True, port= 9090)
+    app.run(debug=True)

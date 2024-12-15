@@ -1,2 +1,2 @@
-# Taller-1
-Taller 1 de Programación IV
+# Taller-6
+Taller 6 de Programación IV
